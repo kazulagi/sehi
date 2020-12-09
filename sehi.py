@@ -103,24 +103,24 @@ for i in range(particle):
                 x_i = x_i_tr
                 cost = cost_tr
                 dif = dif_tr
-            
-    print(" ")
-    print("Trial : "+str(i)+"/ 金額 = "+str( int(cost))+"円" )
-    print("購入量(kg) "+str(x_i_tr) )
+    if i%1000 ==0:
+        print(" ")
+        print("Trial : "+str(i)+"/ 金額 = "+str( int(cost))+"円" )
+        print("購入量(kg) "+str(x_i_tr) )
 
-    Fx = np.zeros([int(num_cont)])
-    for k in range(int(num_cont) ):
-        for l in range(int(num_fert) ):
-            Fx[k] =Fx[k] + F_ij[l,k]* x_i[l]
-    print("成分投入量(kg) "+str(Fx))
-    fval = np.zeros(3)
-    fval[0] = float(Fx[0])/float(area_val)
-    fval[1] = float(Fx[1])/float(area_val)
-    fval[2] = float(Fx[2])/float(area_val)
+        Fx = np.zeros([int(num_cont)])
+        for k in range(int(num_cont) ):
+            for l in range(int(num_fert) ):
+                Fx[k] =Fx[k] + F_ij[l,k]* x_i[l]
+        print("成分投入量(kg) "+str(Fx))
+        fval = np.zeros(3)
+        fval[0] = float(Fx[0])/float(area_val)
+        fval[1] = float(Fx[1])/float(area_val)
+        fval[2] = float(Fx[2])/float(area_val)
 
-    print("10aあたり目標成分投入量(kg) "+str(b_i/float(area_val)) )
-    print("10aあたり予測成分投入量(kg) "+str(fval))
-    print("er : "+str(dif))
+        print("10aあたり目標成分投入量(kg) "+str(b_i/float(area_val)) )
+        print("10aあたり予測成分投入量(kg) "+str(fval))
+        print("er : "+str(dif))
 
 f = open("result.csv",'w')
 f.write("解析結果,\n")
