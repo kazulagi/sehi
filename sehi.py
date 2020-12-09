@@ -86,7 +86,7 @@ for i in range(particle):
                 Fx[k] = Fx[k] + F_ij[l,k]* x_i_tr[l]
 
         for k in range(int(num_cont) ):
-            dif = dif + abs( b_i[k] - Fx[k] )
+            dif = dif + ( b_i[k] - Fx[k] )*( b_i[k] - Fx[k] )
     else:
         # 目標施肥量からの差をdifに計算
         dif_tr=0.0
@@ -96,13 +96,13 @@ for i in range(particle):
                 Fx[k] =Fx[k] +  F_ij[l,k]* x_i_tr[l]
         
         for k in range(int(num_cont) ):
-            dif_tr = dif_tr + abs( b_i[k] - Fx[k] )
+            dif_tr = dif_tr + ( b_i[k] - Fx[k] )*( b_i[k] - Fx[k] )
         
         cost_tr = np.dot(C_i, x_i_tr)
         # もし誤差が少なければx_i[]候補
         if dif_tr < dif:
             # 1000回に一回くらい、誤差だけで置き換え
-            if i%1000 == 0:
+            if i%987 == 0:
                 x_i = x_i_tr
                 cost = cost_tr
                 dif = dif_tr
