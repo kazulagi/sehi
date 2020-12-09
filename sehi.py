@@ -41,7 +41,7 @@ print(field_data)
 
 
 # MC粒子数
-particle = input("粒子数を指定してください(整数値、1000以上推奨）")
+particle = input("粒子数を指定してください(整数値、100000以上推奨）")
 particle = int(particle)
 
 for i in range(int(num_cont) ):
