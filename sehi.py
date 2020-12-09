@@ -1,11 +1,6 @@
 import pandas as pd
 import numpy as np
 
-# MC粒子数
-particle = input("粒子数を指定してください(整数値、1000以上推奨）")
-particle = int(particle)
-sehi_data = pd.read_csv("sehi.csv")
-sehi_data.head()
 
 # 肥料銘柄数
 num_fert = len(sehi_data)
@@ -24,11 +19,11 @@ for i in range(int(num_fert)):
     for j in range(int(num_cont)):
         F_ij[i,j] = sehi_data.iat[i,j+1]
 
-print(sehi_data)
-print(num_fert)
-print(sehi_data.iat[1,1])
-print(F_ij)
-print(C_i)
+#print(sehi_data)
+#print(num_fert)
+#print(sehi_data.iat[1,1])
+#print(F_ij)
+#print(C_i)
 
 
 
@@ -38,9 +33,16 @@ for i in range(int(num_cont) ):
 area = field_data.columns
 area_val = area[1]
 field_data.head()
-print(field_data)
-print(b_i)
-print(area)
+#print(field_data)
+#print(b_i)
+#print(area)
+
+
+# MC粒子数
+particle = input("粒子数を指定してください(整数値、1000以上推奨）")
+particle = int(particle)
+sehi_data = pd.read_csv("sehi.csv")
+sehi_data.head()
 
 for i in range(int(num_cont) ):
     b_i[i] = float(area_val) * b_i[i]
