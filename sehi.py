@@ -121,14 +121,14 @@ for i in range(particle):
     print("er : "+str(dif))
 
 f = open("result.csv",'w')
-f.write("解析結果：\n")
+f.write("解析結果,\n")
 for i in range(int(num_fert) ):
-    f.write(str(sehi_data.iat[i,0])+" : "+str(x_i[i])+" kg\n")
+    f.write(str(sehi_data.iat[i,0])+", "+str(x_i[i])+" kg\n")
 f.write("\n")
-f.write("10aあたり目標成分投入量(kg) "+str(b_i/float(area_val))+"\n" )
-f.write("10aあたり予測成分投入量(kg) "+str(fval)+"\n")
-f.write("er : "+str(dif)+"\n")
-f.write("粒子数："+str(particle)+"\n" )
+f.write("10aあたり目標成分投入量(kg), "+str(b_i/float(area_val))+"\n" )
+f.write("10aあたり予測成分投入量(kg), "+str(fval)+"\n")
+f.write("er, "+str(dif)+"\n")
+f.write("粒子数,"+str(particle)+"\n" )
 f.close()
 
 
