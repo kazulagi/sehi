@@ -12,9 +12,28 @@
 
 n種類の肥料銘柄について、施肥要件を満たす最小コストの組み合わせを探索するものです。
 探索手法としてモンテカルロ法を用いています。
+（そのうちシンプレックス法にしたいです。）
 
 問題の定義：
-![\begin{equation}
-\Min \hspace{1cm} c_i x_i
-\end{equation}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cbegin%7Bequation%7D%0A%5CMin+%5Chspace%7B1cm%7D+c_i+x_i%0A%5Cend%7Bequation%7D)
+
+MIN : C_i x_i
+Subject to: F_ij x_j - b_i > 0
+
+ここに、
+
+C_i：肥料iの質量当り価格(kg/円)
+
+x_i：肥料iの購入量(kg)
+
+F_ij：肥料iの成分IDj(N=1, P=2, K=3)の成分含有率(kg/kg %)
+
+b_i：肥料成分ID(N=1, P=2, K=3)ごとの目標投入量(kg)
+
+
+
+
+
+
+
+
 
