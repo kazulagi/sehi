@@ -3,4 +3,4 @@ import numpy as np
 
 sehi_data = pd.read_csv("sehi.csv")
 
-data.head()
+sehi_data.head()
