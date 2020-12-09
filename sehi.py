@@ -39,9 +39,12 @@ print(field_data)
 #print(b_i)
 #print(area)
 
+# F_ijの値が%換算なのを、[0:1]に変換
+F_ij[:,:]=F_ij[:,:]/100.0
+
 
 # MC粒子数
-particle = input("粒子数を指定してください(整数値、100000以上推奨）")
+particle = input("粒子数を指定してください(整数値、300000以上推奨）")
 particle = int(particle)
 
 for i in range(int(num_cont) ):
@@ -98,6 +101,11 @@ for i in range(particle):
         cost_tr = np.dot(C_i, x_i_tr)
         # もし誤差が少なければx_i[]候補
         if dif_tr < dif:
+            # 1000回に一回くらい、誤差だけで置き換え
+            if i%1000 == 0:
+                x_i = x_i_tr
+                cost = cost_tr
+                dif = dif_tr
             # もし2回目以降ならコストを比較し、より少なければx_i[]候補
             if cost_tr < cost:
                 x_i = x_i_tr
@@ -106,7 +114,7 @@ for i in range(particle):
     if i%100000 ==0:
         print(" ")
         print("Trial : "+str(i)+"/ 金額 = "+str( int(cost))+"円" )
-        print("購入量(kg) "+str(x_i_tr) )
+        print("購入量(kg) "+str(x_i) )
 
         Fx = np.zeros([int(num_cont)])
         for k in range(int(num_cont) ):
@@ -124,6 +132,8 @@ for i in range(particle):
 
 f = open("result.csv",'w')
 f.write("解析結果,\n")
+f.write(" ")
+f.write("金額, "+str( int(cost))+"円\n" )
 for i in range(int(num_fert) ):
     f.write(str(sehi_data.iat[i,0])+", "+str(x_i[i])+" kg\n")
 f.write("\n")
