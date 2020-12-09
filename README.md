@@ -14,6 +14,7 @@ n種類の肥料銘柄について、施肥要件を満たす最小コストの�
 探索手法としてモンテカルロ法を用いています。
 
 問題の定義：
+![\begin{equation}
+\Min \hspace{1cm} c_i x_i
+\end{equation}](https://render.githubusercontent.com/render/math?math=%5Cdisplaystyle+%5Cbegin%7Bequation%7D%0A%5CMin+%5Chspace%7B1cm%7D+c_i+x_i%0A%5Cend%7Bequation%7D)
 
-
-< img src="https://render.githubusercontent.com/render/math?math= min: c_i " >
