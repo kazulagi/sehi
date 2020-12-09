@@ -103,7 +103,7 @@ for i in range(particle):
                 x_i = x_i_tr
                 cost = cost_tr
                 dif = dif_tr
-    if i%1000 ==0:
+    if i%100000 ==0:
         print(" ")
         print("Trial : "+str(i)+"/ 金額 = "+str( int(cost))+"円" )
         print("購入量(kg) "+str(x_i_tr) )
